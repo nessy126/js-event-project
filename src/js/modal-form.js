@@ -1,7 +1,6 @@
 const modalForm = document.querySelector('.modal-form');
 
 function renderModalMarkup(arr) {
-  // getImg(data)
   const markup = arr
     .map(item => {
       `<div class="img-wrapper">
@@ -14,8 +13,7 @@ function renderModalMarkup(arr) {
           <ul class="modal__list">
               <li class="modal__item">
                     <h2 class="modal__header">INFO</h2>
-                    <p class="modal__description">${item.name}
-</p>
+                    <p class="modal__description">${item.name}</p>
                 </li>
                 <li class="modal__item"
                     <h2 class="modal__header">WHEN</h2>
@@ -43,7 +41,6 @@ function renderModalMarkup(arr) {
                     <a class="buttons buy-tiket" href="#">BUY TICKETS</a>
                 </li>
             </ul>
-
         </div>`;
     })
     .join('');
