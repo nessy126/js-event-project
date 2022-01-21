@@ -1,5 +1,3 @@
-export { onScroll, onToUpBtn };
-
 const toUpBtn = document.querySelector('.btn-up');
 
 window.addEventListener('scroll', onScroll);
