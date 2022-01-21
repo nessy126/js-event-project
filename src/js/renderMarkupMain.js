@@ -3,7 +3,7 @@ export default function renderMarkupMain(array) {
   const markupCard = array
     .map(
       item =>
-        `<li class="gallery__item"><div class="gallery__block"><div class="gallery__decoration"></div><img class="gallery__img" scr="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIpVc6pNRGRiTCqYfTez1z3U0FGxvAJ5jsKCsMwlWo5v-qAZ0pvkAe4F_zJ12hIlyicY&usqp=CAU" alt="${array.desc}"><p class="gallery__title">${array.title}</p><p class='gallery__date'>${array.date}</p><p class="gallery__place">${array.place}</p></div></li>`,
+        `<li class="gallery__item"><div class="gallery__block"><div class="gallery__decoration"></div><img class="gallery__img" scr="${item.images[0].url}" alt="${item.name}"><p class="gallery__title">${item.name}</p><p class='gallery__date'>${item.dates.start.localDate}</p><p class="gallery__place">${item._embedded.venues[0].name}</p></div></li>`,
     )
     .join('');
   return (galleryEl.innerHTML = markupCard);
