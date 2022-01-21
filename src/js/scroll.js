@@ -11,7 +11,7 @@ function onScroll() {
     toUpBtn.classList.add('btn-up--visible');
   }
   if (scrolled < coords) {
-    toTopBtn.classList.remove('btn-up--visible');
+    toUPBtn.classList.remove('btn-up--visible');
   }
 }
 
