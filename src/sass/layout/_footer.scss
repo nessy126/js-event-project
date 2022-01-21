@@ -1,0 +1,27 @@
+.footer {
+  background-color: transparent;
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  padding-bottom: 20px;
+}
+
+.footer-btn {
+  padding: 0;
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 0;
+
+  font-size: 14px;
+  line-height: 1.25;
+
+  color: #939393;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+.footer-heart {
+  color: red;
+}
