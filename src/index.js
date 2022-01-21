@@ -7,5 +7,3 @@ import './js/markupSelect';
 import './js/onSubmit';
 
 modalTogle();
-onScroll();
-onToUpBtn();
