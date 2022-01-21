@@ -4,5 +4,3 @@ import modalTogle from './js/modal-team';
 import './js/scroll';
 
 modalTogle();
-onScroll();
-onToUpBtn();
