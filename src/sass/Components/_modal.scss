@@ -32,10 +32,11 @@
     top: 30px;
   }
 }
+// .small-img {
+//   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn-Qim9uZti-fsVDTgeJX5wOxKBUJxqiu-pPB7kFHenxzi1p9XkBH3ZvWmoIHRN3WCyIU&usqp=CAU);
+//   background-size: cover;
+// }
 .img-wrapper {
-  //   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn-Qim9uZti-fsVDTgeJX5wOxKBUJxqiu-pPB7kFHenxzi1p9XkBH3ZvWmoIHRN3WCyIU&usqp=CAU);
-  //   background-size: cover;
-
   display: inline-block;
   width: 102px;
   height: 102px;
@@ -45,8 +46,11 @@
   left: 86px;
 
   border-radius: 50%;
-  border: 1px solid green;
-
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
   @media screen and (min-width: 480px) and (max-width: 780px) {
     width: 70px;
     height: 70px;
