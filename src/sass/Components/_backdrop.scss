@@ -1,0 +1,16 @@
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop {
+  display: flex;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+
+  background: rgba(0, 0, 0, 0.2);
+}
