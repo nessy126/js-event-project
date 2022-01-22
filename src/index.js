@@ -7,8 +7,9 @@ import './js/scroll';
 import './js/fetchEvents';
 import './js/markupSelect';
 import './js/onSubmit';
-import { fetchEvents } from './js/fetchEvents';
 
-fetchEvents().then(renderMarkupMain);
-modalTogle();
-onToggleModal();
+let { countryCode, keyword, pageCount } = params;
+
+fetchEvents(keyword, countryCode).then(renderMarkupMain);
+// modalTogle();
+// onToggleModal();
