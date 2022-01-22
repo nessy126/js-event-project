@@ -1,4 +1,6 @@
+// import * as countries from './countries.json';
 const selectEl = document.querySelector('#searchCountry');
+
 const countries = [
   { countryCode: 'US', country: 'United States Of America' },
   { countryCode: 'AD', country: 'Andorra' },
