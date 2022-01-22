@@ -5,5 +5,6 @@ import './js/scroll';
 import './js/fetchEvents';
 import './js/markupSelect';
 import './js/onSubmit';
+import { fetchEvents } from './js/fetchEvents';
 
 modalTogle();
