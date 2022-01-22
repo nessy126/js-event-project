@@ -15,8 +15,8 @@ Notiflix.Notify.init({
 const baseUrl =
   'https://app.ticketmaster.com/discovery/v2/events.json?apikey=peAFicxdgROimLgt9qctrhItXcX4ekFy';
 let pageCount = 1;
-let keyword = '';
-let countryCode = '';
+// let keyword = '';
+// let countryCode = '';
 
 async function fetchEvents(keyword, countryCode) {
   try {
