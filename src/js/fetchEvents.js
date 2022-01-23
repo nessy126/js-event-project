@@ -1,16 +1,5 @@
-import Notiflix from 'notiflix';
 const axios = require('axios');
-
-Notiflix.Notify.init({
-  width: '350px',
-  fontSize: '24px',
-  distance: '30px',
-  clickToClose: true,
-  useIcon: false,
-  failure: {
-    background: 'rgba(220, 86, 197, .4)',
-  },
-});
+import notification from './notification';
 
 const baseUrl =
   'https://app.ticketmaster.com/discovery/v2/events.json?apikey=peAFicxdgROimLgt9qctrhItXcX4ekFy';
@@ -31,7 +20,7 @@ async function fetchEvents(keyword, countryCode) {
     // console.log(events);
     return events;
   } catch (error) {
-    Notiflix.Notify.failure('Sorry, but we do not found any event &#128557;');
+    notification();
   }
 }
 const params = {
