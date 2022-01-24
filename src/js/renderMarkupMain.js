@@ -1,10 +1,11 @@
 export default function renderMarkupMain(array) {
-  console.log(array)
+  // console.log(array);
+  // console.log(array._embedded.events[0].id);
   const galleryEl = document.querySelector('.gallery');
   const markupCard = array._embedded.events
     .map(
       item =>
-        `<li class="gallery__item">
+        `<li id=${item.id} class="gallery__item">
         <div class="gallery__block">
         <div class="gallery__decoration"></div>
      <img data-modal-open class="gallery__img" src="${
