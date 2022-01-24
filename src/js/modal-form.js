@@ -1,6 +1,8 @@
 const modalForm = document.querySelector('.modal-form');
 
-function renderModalMarkup(arr) {
+function renderModalMarkup(data) {
+  const arr = data._embedded.events;
+  fetchEvents();
   const markup = arr
     .map(item => {
       `<div class="img-wrapper">

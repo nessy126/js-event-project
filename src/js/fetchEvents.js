@@ -1,24 +1,13 @@
-import Notiflix from 'notiflix';
 const axios = require('axios');
-
-Notiflix.Notify.init({
-  width: '350px',
-  fontSize: '24px',
-  distance: '30px',
-  clickToClose: true,
-  useIcon: false,
-  failure: {
-    background: 'rgba(220, 86, 197, .4)',
-  },
-});
+import notification from './notification';
 
 const baseUrl =
-  'https://app.ticketmaster.com/discovery/v2/events.json?apikey=peAFicxdgROimLgt9qctrhItXcX4ekFy';
-let pageCount = 1;
+  'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO';
+// let pageCount = 1;
 // let keyword = '';
 // let countryCode = '';
 
-async function fetchEvents(keyword, countryCode) {
+async function fetchEvents(keyword, countryCode, pageCount) {
   try {
     const result = await axios.get(
       `${baseUrl}&page=${pageCount}&keyword=${keyword}&countryCode=${countryCode}`,
@@ -27,11 +16,13 @@ async function fetchEvents(keyword, countryCode) {
     if (totalElements === 0) {
       throw new Error();
     }
-    const events = result.data._embedded.events;
+    const data = result.data;
+
+    // const events = _embedded.events;
     // console.log(events);
-    return events;
+    return data;
   } catch (error) {
-    Notiflix.Notify.failure('Sorry, but we do not found any event &#128557;');
+    notification();
   }
 }
 const params = {

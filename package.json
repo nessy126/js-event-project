@@ -28,6 +28,8 @@
   "dependencies": {
     "axios": "^0.25.0",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.2"
+    "notiflix": "^3.2.2",
+    "smooth-scrollbar": "^8.7.4",
+    "styleselect": "^1.0.1"
   }
 }

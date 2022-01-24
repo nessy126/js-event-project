@@ -12,9 +12,21 @@
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  color: #dc56c5;
+  color: var(--title-text-color);
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
+
+  filter: brightness(0.75) saturate(0.3) contrast(0.85);
+  transform: scale(1) translateZ(0);
+  transition: filter 200ms linear, transform 200ms linear;
+}
+
+.btn-up:hover {
+  filter: brightness(1) saturate(1) contrast(1.2);
+}
+
+.btn-img {
+  fill: var(--title-text-color);
 }
 
 .btn-up--visible {

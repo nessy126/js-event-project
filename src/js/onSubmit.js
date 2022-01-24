@@ -7,15 +7,14 @@ let { countryCode, keyword, pageCount } = params;
 
 function onSearch(event) {
   event.preventDefault();
-  // countryCode = formEl.elements.searchCountry.value;
   countryCode = selectEl.value;
   keyword = formEl.elements.searchWord.value;
   if (countryCode === 'Choose country') {
     countryCode = 'US';
   }
-  console.log(keyword);
-  console.log(countryCode);
-  fetchEvents(keyword, countryCode).then(renderMarkupMain).catch(console.log);
+  // console.log(keyword);
+  // console.log(countryCode);
+  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(console.log);
 }
 
 formEl.addEventListener('submit', onSearch);
