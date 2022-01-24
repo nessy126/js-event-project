@@ -1,6 +1,7 @@
 .footer {
   background-color: transparent;
-
+  position: relative;
+  bottom: 40px;
   padding-bottom: 20px;
 }
 
@@ -21,5 +22,5 @@
   }
 }
 .footer-heart {
-  color: red;
+  color: rgb(199, 31, 31);
 }
