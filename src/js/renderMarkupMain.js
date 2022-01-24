@@ -3,7 +3,7 @@ export default function renderMarkupMain(array) {
   const markupCard = array._embedded.events
     .map(
       item =>
-        `<li class="gallery__item">
+        `<li id=${item.id} class="gallery__item">
         <div class="gallery__block">
         <div class="gallery__decoration"></div>
      <img data-modal-open class="gallery__img" src="${

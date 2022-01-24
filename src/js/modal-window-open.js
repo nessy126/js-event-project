@@ -1,3 +1,4 @@
+import { fetchEventsById, modalMarkup } from './modalMarkup.js';
 const refs = {
   openModalBtn: document.querySelectorAll('[data-modal-open]'),
   gallery: document.querySelector('.gallery'),
@@ -22,7 +23,9 @@ function toggleClass() {
 
 function openModal(e) {
   if (!e.target.closest('li')) return;
+  const id = e.target.closest('li').id;
   toggleClass();
+  fetchEventsById(id).then(modalMarkup);
 }
 
 function closeModal(e) {

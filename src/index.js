@@ -11,3 +11,7 @@ import './js/onSubmit';
 import './js/styleSelect';
 import './js/generatePaginationByQuery';
 import './js/generatePaginationUsingRightData';
+
+let { countryCode, keyword, pageCount } = params;
+fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain);
+

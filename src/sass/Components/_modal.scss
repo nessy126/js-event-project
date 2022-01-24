@@ -1,20 +1,19 @@
 .modal-form {
+  top: 150px;
   position: relative;
   width: 272px;
-  min-height: 915px;
+  height: 915px;
   margin: 0 auto;
 
   border-radius: 150px 0px;
 
   background-color: var(--modal-background-color);
 
-  @media screen and (min-width: 480px) and (max-width: 779px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 595px;
-    height: 831px;
-
     border-radius: 300px 0px;
   }
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     width: 930px;
     height: 1023px;
 
@@ -26,11 +25,14 @@
   right: 25px;
   top: 25px;
 
-  border-radius: 50%;
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  // border-radius: 50%;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     right: 30px;
     top: 30px;
   }
+}
+.madal-close-icon {
+  color: black;
 }
 .img-wrapper {
   display: inline-block;
@@ -47,15 +49,15 @@
     height: 100px;
     border-radius: 50%;
   }
-  @media screen and (min-width: 480px) and (max-width: 779px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 70px;
     height: 70px;
 
-    left: 263px;
-    top: 28px;
+    left: 231px;
+    top: 40px;
   }
 
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     width: 132px;
     height: 132px;
 
@@ -66,17 +68,17 @@
 .main-img-wrapper {
   display: none;
 
-  @media screen and (min-width: 480px) and (max-width: 779px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: inline-block;
     position: absolute;
-    top: 141px;
-    left: 50px;
+    top: 153px;
+    left: 18px;
 
     width: 233px;
     height: 416px;
     border: 1px solid;
   }
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     display: inline-block;
     position: absolute;
     top: 235px;
@@ -92,20 +94,19 @@
   position: absolute;
   top: 195px;
 
-  @media screen and (min-width: 480px) and (max-width: 779px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     text-align: start;
 
-    top: 141px;
-    left: 313px;
+    top: 153px;
+    left: 281px;
   }
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     text-align: start;
     top: 235px;
     left: 450px;
   }
 }
 .modal__header {
-  //   font-family: inherit;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
@@ -113,19 +114,20 @@
   color: var(--title-text-color);
 
   margin-bottom: 5px;
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+    line-height: 1.25;
     margin-bottom: 7px;
   }
 }
 .modal__description {
-  //   font-family: Montserrat;
   font-size: 16px;
   line-height: 1.25;
 
   color: var(--secondary-text-color);
 
   margin-bottom: 3px;
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     font-size: 18px;
     line-height: 1.2;
     margin-bottom: 5px;
@@ -136,10 +138,10 @@
   padding-left: 15px;
   padding-right: 15px;
 
-  @media screen and (min-width: 480px) and (max-width: 779px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     padding-left: 0;
   }
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     padding-left: 0;
     margin-bottom: 20px;
   }
@@ -149,10 +151,10 @@
   li {
     margin-bottom: 20px;
   }
-  @media screen and (min-width: 480px) and (max-width: 779px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-bottom: 0;
   }
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     li {
       margin-bottom: 30px;
     }
@@ -164,21 +166,21 @@
   line-height: 1.25;
 
   margin-bottom: 10px;
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
-    margin-bottom: 20px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-bottom: 10px;
   }
 }
 .btn-position {
   position: absolute;
-  bottom: 104px;
+  top: 771px;
   left: 20px;
-  @media screen and (min-width: 480px) and (max-width: 779px) {
-    bottom: 56px;
-    left: 170px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    top: 747px;
+    left: 138px;
   }
 
-  @media screen and (min-width: 780px) and (max-width: 1279px) {
-    bottom: 62px;
+  @media screen and (min-width: 1280px) {
+    top: 921px;
     left: 337px;
   }
 }
