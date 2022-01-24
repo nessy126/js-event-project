@@ -14,7 +14,7 @@ function onSearch(event) {
   }
   // console.log(keyword);
   // console.log(countryCode);
-  fetchEvents(keyword, countryCode).then(renderMarkupMain).catch(console.log);
+  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(console.log);
 }
 
 formEl.addEventListener('submit', onSearch);
