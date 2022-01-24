@@ -1,4 +1,5 @@
 export default function renderMarkupMain(array) {
+  console.log(array)
   const galleryEl = document.querySelector('.gallery');
   const markupCard = array._embedded.events
     .map(
