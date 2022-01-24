@@ -2,7 +2,7 @@ const axios = require('axios');
 import notification from './notification';
 
 const baseUrl =
-  'https://app.ticketmaster.com/discovery/v2/events.json?apikey=peAFicxdgROimLgt9qctrhItXcX4ekFy';
+  'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO';
 // let pageCount = 1;
 // let keyword = '';
 // let countryCode = '';
