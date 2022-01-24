@@ -3,11 +3,11 @@ import notification from './notification';
 
 const baseUrl =
   'https://app.ticketmaster.com/discovery/v2/events.json?apikey=peAFicxdgROimLgt9qctrhItXcX4ekFy';
-let pageCount = 1;
+// let pageCount = 1;
 // let keyword = '';
 // let countryCode = '';
 
-async function fetchEvents(keyword, countryCode) {
+async function fetchEvents(keyword, countryCode, pageCount) {
   try {
     const result = await axios.get(
       `${baseUrl}&page=${pageCount}&keyword=${keyword}&countryCode=${countryCode}`,
@@ -16,9 +16,11 @@ async function fetchEvents(keyword, countryCode) {
     if (totalElements === 0) {
       throw new Error();
     }
-    const events = result.data._embedded.events;
+    const data = result.data;
+
+    // const events = _embedded.events;
     // console.log(events);
-    return events;
+    return data;
   } catch (error) {
     notification();
   }
