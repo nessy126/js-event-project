@@ -1,6 +1,10 @@
 .header{
     background-color: var(--primary-background-color);
-    background-image: url(../images/bgImg-tablet-1x.jpg);
+    background-image: linear-gradient(
+      180deg,
+      rgba(13, 13, 13, 0) 0%,
+      rgba(14, 14, 14, 0.8) 100%
+    ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-1x.jpg);
     background-position: center;
     // background-size: 100% auto;
     position: relative;
@@ -8,17 +12,29 @@
     @media (min-device-pixel-ratio: 2) and (max-width: 767px),
       (min-resolution: 192dpi) and (max-width: 767px),
       (min-resolution: 2dppx) and (max-width: 767px) {
-        background-image: url(../images/bgImg-tablet-2x.jpg);
+        background-image: linear-gradient(
+            180deg,
+            rgba(13, 13, 13, 0) 0%,
+            rgba(14, 14, 14, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-2x.jpg);
       }
     @media screen and (min-width: 768px) {
-        background-image: url(../images/bgImg-desktop-1x.jpg);   
+        background-image: linear-gradient(
+            180deg,
+            rgba(13, 13, 13, 0) 0%,
+            rgba(14, 14, 14, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-desktop-1x.jpg);   
         padding: 40px;
     
     }
     @media (min-device-pixel-ratio: 2) and (min-width: 768px),
       (min-resolution: 192dpi) and (max-width: 767px),
       (min-resolution: 2dppx) and (max-width: 767px) {
-        background-image: url(../images/bgImg-desktop-2x.jpg);   
+        background-image: linear-gradient(
+            180deg,
+            rgba(13, 13, 13, 0) 0%,
+            rgba(14, 14, 14, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-desktop-2x.jpg);   
         padding: 40px;
       }
    
@@ -115,6 +131,11 @@ line-height: 61px;
 margin-bottom: 55px;}
 }
 
+.header_title:hover{
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ff00de, 0 0 80px #ff00de, 0 0 90px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+
+}
+
 .search-form-thumb{
     display: flex;
     align-items: center;
@@ -129,20 +150,20 @@ margin-bottom: 55px;}
         margin-bottom: 100px;
     }
 }
+
 .header_search-form {
     box-sizing: border-box;
 width: 270px;
 background: rgba(255, 255, 255, 0.2);
 backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
 border-radius: 20px;
 border: none;
 margin-bottom: 25px;
-
 padding-top: 10px;
 padding-bottom: 10px;
 padding-left: 30px;
 font-family: inherit;
-// font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 20px;
@@ -151,6 +172,13 @@ cursor: url('../images/decor/neon_cursor02-pink.cur'), pointer;
 @media screen and (min-width: 768px) {
     margin-bottom: 0px;
 }
+}
+.header_search-form::placeholder{
+    font-family: inherit;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+color: var(--third-text-color);
 }
 
 .header_search-form:first-child{
@@ -175,9 +203,15 @@ header select{
 .header_search_icon {
     width: 15px;
     height: 15px;
-    position: absolute;
-right: 30px;
-top: 14px;
+    
 }
 
+.btn-submit{
+    position: absolute;
+    right: 30px;
+    top: 14px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
 
