@@ -20,8 +20,6 @@ async function fetchEvents(keyword, countryCode, pageCount) {
 
     // const events = _embedded.events;
     // console.log(events);
-    console.log(data);
-
     return data;
   } catch (error) {
     notification();
