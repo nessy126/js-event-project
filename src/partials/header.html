@@ -1,20 +1,22 @@
 <header>
   <div class="header">
     <div class="header_blur"></div>
-    <div class="header_thumb">
+    <div class="header_and_logo_thumb">
       <svg class="header_logo">
         <use href="./images/sprite.svg#logo"></use>
       </svg>
       <div class="header_title_thumb">
-        <h1 class="header_title">FIND BEST EVENTS AROUND THE WORLD</h1>
+        <h1 class="header_title">FIND BEST EVENTS<br>AROUND THE WORLD</h1>
       </div>
     </div>
     <form id="search-form">
       <div class="search-form-thumb">
         <div class="search-container">
+          <button type="submit" class="btn-submit">
           <svg class="header_search_icon">
             <use href="./images/sprite.svg#search-icon"></use>
           </svg>
+        </button>
           <input
             class="header_search-form"
             type="text"
@@ -24,12 +26,14 @@
           />
         </div>
         <div class="search-container">
-          <svg class="header_search_icon">
+          <!-- <svg class="header_search_icon">
             <use href="./images/sprite.svg#polygon-1"></use>
-          </svg>
-          <select class="header_search-form" id="searchCountry" name="searchCountry">
+          </svg> -->
+          <div class="select input-group select-container">
+          <select id="searchCountry" name="searchCountry">
             <option value="" disabled selected>Choose country</option>
           </select>
+        </div>
         </div>
       </div>
     </form>
