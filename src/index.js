@@ -10,6 +10,6 @@ import './js/onSubmit';
 
 let { countryCode, keyword, pageCount } = params;
 
-fetchEvents(keyword, countryCode).then(renderMarkupMain);
+fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain);
 // modalTogle();
 // onToggleModal();
