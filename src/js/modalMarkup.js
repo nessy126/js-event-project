@@ -1,5 +1,5 @@
 import { async } from 'fast-glob';
-import { params, fetchEvents } from './fetchEvents';
+import { params, fetchEvents, key, baseURL, requestToAPI } from './fetchEvents';
 import renderMarkupMain from './renderMarkupMain';
 import { toggleClass } from './modal-window-open';
 import paginationMarkup from './pagination';
@@ -13,7 +13,7 @@ let { countryCode, keyword, pageCount } = params;
 async function fetchEventsById(id) {
   try {
     const result = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO`,
+      `${baseURL}/${id}.json?apikey=${key}`,
     );
 
     const data = result.data;
@@ -138,7 +138,7 @@ function searchByAuthor(event) {
            renderMarkupMain.page.number,
            {
              baseTag: 'a',
-             link: 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO&page=',
+             link: `${requestToAPI}&page=`,
            },
          )),
      )
