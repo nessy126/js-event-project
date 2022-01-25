@@ -7,7 +7,6 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
   modalForm: document.querySelector('.modal-wrapper'),
 };
-console.log(refs.infoConteiner);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdrop.addEventListener('click', onBackdrop);
@@ -49,6 +48,8 @@ function onBackdrop(e) {
     document.querySelector('[data-modal]').classList.add('vivify', 'jumpOutRight');
   }
 }
+
+export { toggleClass };
 // targetElement.ontouchend = e => {
 //   e.preventDefault();
 // };
