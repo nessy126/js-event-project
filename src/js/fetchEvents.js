@@ -1,14 +1,8 @@
-const axios = require('axios');
-const key = 'bnP0T7x8D01uSePMubEXBVcRutPm493N';
-const baseURL = 'https://app.ticketmaster.com/discovery/v2/events';
-
-
-
+const axios = require('axios')
+const key = 'bnP0T7x8D01uSePMubEXBVcRutPm493N'
+const baseURL = 'https://app.ticketmaster.com/discovery/v2/events'
 const requestToAPI =
-  `${baseURL}.json?apikey=${key}`;
-// let pageCount = 1;
-// let keyword = '';
-// let countryCode = '';
+  `${baseURL}.json?apikey=${key}`
 
 async function fetchEvents(keyword, countryCode, pageCount) {
   try {
@@ -32,4 +26,4 @@ const params = {
   countryCode: '',
 };
 
-export { params, fetchEvents, key, baseURL, requestToAPI };
+export { params, fetchEvents, key, baseURL, requestToAPI};
