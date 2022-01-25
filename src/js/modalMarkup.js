@@ -26,17 +26,13 @@ function checkInfo(data) {
     info: data.info ? data.info : 'Sorry, but there is no info',
     localDate: data.dates.start.localDate ? data.dates.start.localDate : '',
     priceRanges: data.priceRanges ? data.priceRanges : '',
-    pricetype: data.priceRanges ? data.priceRanges[0].type : '',
-    minPrice: data.priceRanges ? data.priceRanges[0].min : '',
-    maxPrice: data.priceRanges ? data.priceRanges[0].max : '',
-    currency: data.priceRanges ? data.priceRanges[0].currency : '',
     byTicket: data.url ? data.url : '',
     country: data._embedded.venues[0].country.name,
     image: data.images.find(img => img.url.includes('ARTIST_PAGE_3_2')),
     imageMain: data.images.find(img => img.url.includes('TABLET_LANDSCAPE_LARGE_16_9')),
   };
 
-  console.log(event);
+  console.log(event.byTicket);
 
   modalMarkup(event);
 }
@@ -58,7 +54,7 @@ function modalMarkup(event) {
                     <p class="modal__description" data-modal-info>${event.info}</p>
                     </div>
                 </li>
-                <li class="modal__item"
+                <li class="modal__item">
                     <h2 class="modal__header">WHEN</h2>
                     <p class="modal__description">${event.localDate}</p>
                     <p class="modal__description">${event.localTime}${event.timezone}</p>
@@ -90,6 +86,8 @@ function modalMarkup(event) {
 
 function renderIventPrice(priceRanges, byTicket) {
   const priceListEl = document.querySelector('.prices-list');
+  console.log(byTicket)
+  console.log
 
   if (priceRanges === '') return;
   priceListEl.innerHTML = `<h2 class="modal__header">PRICES</h2>`;
@@ -99,8 +97,8 @@ function renderIventPrice(priceRanges, byTicket) {
         <p class="price">
       ${item.type[0].toUpperCase() + item.type.slice(1)}  ${item.min} - ${item.max} ${
         item.currency
-      }</p>   
-        <a class="buttons buy-tiket" href= "${item.byTicket}">BUY TICKETS </a>
+      }</p>
+        <a class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </a>
     </li>`;
     })
     .join('');
