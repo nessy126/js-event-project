@@ -97,13 +97,12 @@ function modalMarkup(event) {
 
   const linkEl = document.querySelector('.more-from');
   linkEl.addEventListener('click', searchByAuthor);
-
 }
 
 function renderIventPrice(priceRanges, byTicket) {
   const priceListEl = document.querySelector('.prices-list');
-  console.log(byTicket)
-  console.log
+  console.log(byTicket);
+  console.log;
 
   if (priceRanges === '') return;
   priceListEl.innerHTML = `<h2 class="modal__header">PRICES</h2>`;
@@ -114,33 +113,32 @@ function renderIventPrice(priceRanges, byTicket) {
       ${item.type[0].toUpperCase() + item.type.slice(1)}  ${item.min} - ${item.max} ${
         item.currency
       }</p>
-        <button class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </button>
+        <a class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </a>
     </li>`;
     })
     .join('');
+
   priceListEl.insertAdjacentHTML('beforeend', renderPrice);
 }
 export { fetchEventsById, checkInfo };
-
-
 
 function searchByAuthor(event) {
   keyword = event.target.getAttribute('data-name');
   console.log(keyword);
   toggleClass();
-   const paginationId = document.querySelector('.pagination');
-   fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
-   fetchEvents(keyword, countryCode, pageCount)
-     .then(
-       renderMarkupMain =>
-         (paginationId.innerHTML = paginationMarkup(
-           renderMarkupMain.page.totalPages,
-           renderMarkupMain.page.number,
-           {
-             baseTag: 'a',
-             link: 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO&page=',
-           },
-         )),
-     )
-     .catch(console.log);
+  const paginationId = document.querySelector('.pagination');
+  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
+  fetchEvents(keyword, countryCode, pageCount)
+    .then(
+      renderMarkupMain =>
+        (paginationId.innerHTML = paginationMarkup(
+          renderMarkupMain.page.totalPages,
+          renderMarkupMain.page.number,
+          {
+            baseTag: 'a',
+            link: 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO&page=',
+          },
+        )),
+    )
+    .catch(console.log);
 }

@@ -4,6 +4,7 @@ const refs = {
   gallery: document.querySelector('.gallery'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
+  modalAnime: document.querySelector('.modal-form'),
   backdrop: document.querySelector('.backdrop'),
   modalForm: document.querySelector('.modal-wrapper'),
 };
@@ -27,8 +28,7 @@ function openModal(e) {
   const id = e.target.closest('li').id;
   toggleClass();
   fetchEventsById(id).then(checkInfo);
-  document.querySelector('[data-modal]').classList.remove('vivify', 'jumpOutRight');
-  document.querySelector('[data-modal]').classList.add('vivify', 'jumpInLeft');
+  animationTwo();
   // renderModalMarkup();
 }
 
@@ -36,17 +36,25 @@ function closeModal(e) {
   if (!e.target.closest('button')) return;
   refs.modalForm.innerHTML = '';
   toggleClass();
-  document.querySelector('[data-modal]').classList.remove('vivify', 'jumpInLeft');
-  document.querySelector('[data-modal]').classList.add('vivify', 'jumpOutRight');
+  animation();
 }
 
 function onBackdrop(e) {
   if (e.target === e.currentTarget) {
     refs.modalForm.innerHTML = '';
     toggleClass();
-    document.querySelector('[data-modal]').classList.remove('vivify', 'jumpInLeft');
-    document.querySelector('[data-modal]').classList.add('vivify', 'jumpOutRight');
+    animation();
   }
+}
+
+function animationTwo() {
+  document.querySelector('.modal-form').classList.remove('vivify', 'jumpOutRight');
+  document.querySelector('.modal-form').classList.add('vivify', 'jumpInLeft');
+}
+
+function animation() {
+  document.querySelector('.modal-form').classList.remove('vivify', 'jumpInLeft');
+  document.querySelector('.modal-form').classList.add('vivify', 'jumpOutRight');
 }
 
 export { toggleClass };
