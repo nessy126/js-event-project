@@ -13,7 +13,7 @@ export default function modalTogle() {
   function toggleModalOpen() {
     refs.backdrop.classList.toggle('is-hidden');
     document.querySelector('.modal-form-team').classList.remove('vivify', 'popOutTop');
-    document.querySelector('.modal-form-team').classList.add('vivify', 'swoopInBottom');
+    document.querySelector('.modal-form-team').classList.add('vivify', 'popInBottom');
   }
 
   function toggleModalCloset() {
