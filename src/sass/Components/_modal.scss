@@ -1,8 +1,14 @@
 .modal-form {
-  top: 150px;
+  padding-top: 200px;
+  padding-bottom: 105px;
+  padding-left: 20px;
+  padding-right: 20px;
+  top: 100px;
   position: relative;
   width: 272px;
-  height: 915px;
+
+  height: auto;
+
   margin: 0 auto;
 
   border-radius: 150px 0px;
@@ -12,19 +18,16 @@
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 595px;
     border-radius: 300px 0px;
+    top: 200px;
   }
   @media screen and (min-width: 1280px) {
+    top: 200px;
     width: 930px;
-    height: 1023px;
+    min-height: 1023px;
 
     border-radius: 300px 0px;
   }
 }
-.position {
-  position: absolute;
-  z-index: 10;
-}
-
 .modal-close-btn {
   position: absolute;
   right: 25px;
@@ -52,7 +55,8 @@
 
   position: absolute;
   top: 75px;
-  left: 86px;
+  transform: translateX(-50%);
+  left: 50%;
 
   border-radius: 50%;
   img {
@@ -87,7 +91,6 @@
 
     width: 233px;
     height: 416px;
-    border: 1px solid;
   }
 
   @media screen and (min-width: 1280px) {
@@ -98,7 +101,6 @@
 
     width: 360px;
     height: 641px;
-    border: 1px solid;
   }
 }
 .main-img-wrapper .main-img {
@@ -118,14 +120,11 @@
 }
 .card-discription {
   text-align: center;
-  position: absolute;
+
   top: 195px;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     text-align: start;
-
-    top: 153px;
-    left: 281px;
   }
   @media screen and (min-width: 1280px) {
     text-align: start;
@@ -161,14 +160,27 @@
   }
 }
 .info-conteiner {
-  width: 450px;
-  height: 70px;
   overflow: hidden;
+  width: 240px;
+  height: 80px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 265px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 450px;
+  }
 }
 .info-description {
   display: inline-block;
   animation: floatText 15s infinite linear;
-  padding-top: 20%;
+  padding-top: 45%;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    padding-top: 40%;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 20%;
+  }
 }
 .info-description:hover {
   animation-play-state: paused;
@@ -211,21 +223,36 @@
   line-height: 1.25;
 
   margin-bottom: 10px;
+  &::before {
+    display: inline-block;
+    content: '';
+    margin-right: 3px;
+    width: 24px;
+    height: 16px;
+    background-image: url(./../images/ticket/ticket.svg);
+  }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-bottom: 10px;
   }
 }
-.btn-position {
-  position: absolute;
-  top: 771px;
-  left: 20px;
+.test {
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    top: 747px;
-    left: 138px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.btn-position {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
   }
 
   @media screen and (min-width: 1280px) {
-    top: 921px;
-    left: 337px;
+    position: absolute;
+
+    bottom: -44px;
+    left: -138px;
   }
+}
+.ticket-svg {
+  stroke: currentColor;
+  fill: currentColor;
 }
