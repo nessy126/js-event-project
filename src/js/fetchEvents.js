@@ -1,5 +1,4 @@
 const axios = require('axios');
-import notification from './notification';
 
 const baseUrl =
   'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO';
@@ -18,11 +17,9 @@ async function fetchEvents(keyword, countryCode, pageCount) {
     }
     const data = result.data;
 
-    // const events = _embedded.events;
-    // console.log(events);
     return data;
   } catch (error) {
-    notification();
+    return error;
   }
 }
 const params = {

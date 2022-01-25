@@ -3,6 +3,7 @@ import renderMarkupMain from './renderMarkupMain';
 const formEl = document.querySelector('#search-form');
 const selectEl = document.querySelector('#searchCountry');
 import paginationMarkup from './pagination';
+import notification from './notification';
 
 let { countryCode, keyword, pageCount } = params;
 
@@ -16,7 +17,7 @@ function onSearch(event) {
   // console.log(keyword);
   // console.log(countryCode);
   const paginationId = document.querySelector('.pagination');
-  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain);
+  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
   fetchEvents(keyword, countryCode, pageCount)
     .then(
       renderMarkupMain =>
