@@ -29,4 +29,11 @@ paginationId.addEventListener('click', e => {
         },
       )),
   );
+  document.querySelector('.gallery').classList.add('vivify', 'popIn');
+});
+
+document.querySelector('.gallery').classList.add('vivify', 'popIn');
+paginationId.addEventListener('mouseover', e => {
+  e.preventDefault();
+  document.querySelector('.gallery').classList.remove('vivify', 'popIn');
 });

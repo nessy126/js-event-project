@@ -28,6 +28,8 @@ function openModal(e) {
   const id = e.target.closest('li').id;
   toggleClass();
   fetchEventsById(id).then(checkInfo);
+  document.querySelector('[data-modal]').classList.remove('vivify', 'jumpOutRight');
+  document.querySelector('[data-modal]').classList.add('vivify', 'jumpInLeft');
   // renderModalMarkup();
 }
 
@@ -35,12 +37,16 @@ function closeModal(e) {
   if (!e.target.closest('button')) return;
   refs.modalForm.innerHTML = '';
   toggleClass();
+  document.querySelector('[data-modal]').classList.remove('vivify', 'jumpInLeft');
+  document.querySelector('[data-modal]').classList.add('vivify', 'jumpOutRight');
 }
 
 function onBackdrop(e) {
   if (e.target === e.currentTarget) {
     refs.modalForm.innerHTML = '';
     toggleClass();
+    document.querySelector('[data-modal]').classList.remove('vivify', 'jumpInLeft');
+    document.querySelector('[data-modal]').classList.add('vivify', 'jumpOutRight');
   }
 }
 // targetElement.ontouchend = e => {

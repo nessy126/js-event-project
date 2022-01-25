@@ -6,16 +6,27 @@ export default function modalTogle() {
     backdrop: document.querySelector('.modal-backdrop-team'),
   };
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+  refs.openModalBtn.addEventListener('click', toggleModalOpen);
+  refs.closeModalBtn.addEventListener('click', toggleModalCloset);
   refs.backdrop.addEventListener('click', onBackdrop);
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
+
+  function toggleModalOpen() {
+    refs.backdrop.classList.toggle('is-hidden');
+    document.querySelector('.modal-form-team').classList.remove('vivify', 'popOutTop');
+    document.querySelector('.modal-form-team').classList.add('vivify', 'swoopInBottom');
   }
+
+  function toggleModalCloset() {
+    refs.backdrop.classList.toggle('is-hidden');
+    document.querySelector('.modal-form-team').classList.remove('vivify', 'popInBottom');
+    document.querySelector('.modal-form-team').classList.add('vivify', 'popOutTop');
+  }
+
   function onBackdrop(e) {
     if (e.target === e.currentTarget) {
-      toggleModal();
+      toggleModalCloset();
     }
   }
 }
+
 modalTogle();
