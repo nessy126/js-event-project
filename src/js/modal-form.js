@@ -2,7 +2,6 @@ const modalForm = document.querySelector('.modal-form');
 import { params, fetchEvents } from './fetchEvents';
 
 export default function renderModalMarkup(data) {
-  //   const arr = data._embedded.events;
 
   console.log({ params, fetchEvents });
   const markup = arr

@@ -29,7 +29,6 @@ function openModal(e) {
   fetchEventsById(id).then(checkInfo);
   document.querySelector('[data-modal]').classList.remove('vivify', 'jumpOutRight');
   document.querySelector('[data-modal]').classList.add('vivify', 'jumpInLeft');
-  // renderModalMarkup();
 }
 
 function closeModal(e) {
@@ -50,6 +49,3 @@ function onBackdrop(e) {
 }
 
 export { toggleClass };
-// targetElement.ontouchend = e => {
-//   e.preventDefault();
-// };

@@ -1,10 +1,8 @@
-import { async } from 'fast-glob';
 import { params, fetchEvents, key, baseURL, requestToAPI } from './fetchEvents';
 import renderMarkupMain from './renderMarkupMain';
 import { toggleClass } from './modal-window-open';
 import paginationMarkup from './pagination';
 import notification from './notification';
-import { even } from 'prelude-ls';
 
 const axios = require('axios');
 
@@ -24,7 +22,6 @@ async function fetchEventsById(id) {
   }
 }
 function checkInfo(data) {
-  console.log(data);
   const event = {
     id: data.id,
     url: data.url,
@@ -43,14 +40,11 @@ function checkInfo(data) {
     nameOfAuthor: data._embedded.attractions.find(author => author.name).name,
   };
 
-  console.log(event.byTicket);
-
   modalMarkup(event);
 }
 
 const modalForm = document.querySelector('.modal-wrapper');
 function modalMarkup(event) {
-  console.log(event.nameOfAuthor);
   const markup = `
   <div class="img-wrapper">
         <img class= "small-img" src="${event.image.url}" alt="">
@@ -102,8 +96,6 @@ function modalMarkup(event) {
 
 function renderIventPrice(priceRanges, byTicket) {
   const priceListEl = document.querySelector('.prices-list');
-  console.log(byTicket)
-  console.log
 
   if (priceRanges === '') return;
   priceListEl.innerHTML = `<h2 class="modal__header">PRICES</h2>`;
@@ -126,7 +118,6 @@ export { fetchEventsById, checkInfo };
 
 function searchByAuthor(event) {
   keyword = event.target.getAttribute('data-name');
-  console.log(keyword);
   toggleClass();
    const paginationId = document.querySelector('.pagination');
    fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
