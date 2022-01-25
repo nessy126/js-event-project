@@ -43,7 +43,7 @@ function modalMarkup(event) {
   <div class="img-wrapper">
         <img class= "small-img" src="${event.image.url}" alt="">
       </div>
-    <div class='test'>
+    <div class='card-discription-wrapper'>
       <div class="main-img-wrapper">
           <img class ="main-img" src="${event.imageMain.url}" alt="">
       </div>
@@ -58,11 +58,13 @@ function modalMarkup(event) {
                 <li class="modal__item">
                     <h2 class="modal__header">WHEN</h2>
                     <p class="modal__description">${event.localDate}</p>
-                    <p class="modal__description">${event.localTime}${event.timezone}</p>
+                    <p class="modal__description">${event.localTime.slice(0, 5)}(${
+    event.timezone
+  })</p>
                 </li>
                 <li class="modal__item">
                     <h2 class="modal__header">WHERE</h2>
-                    <p class="modal__description">${event.place},${event.country}</p>
+                    <p class="modal__description">${event.place}<br>${event.country}</p>
                     <p class="modal__description">${event.location}</p>
                 </li>
                 <li class="modal__item">
