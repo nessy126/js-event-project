@@ -1,9 +1,10 @@
-import { params, fetchEvents } from './fetchEvents';
+import { params, fetchEvents, key, baseURL, requestToAPI } from './fetchEvents';
 import renderMarkupMain from './renderMarkupMain';
 const formEl = document.querySelector('#search-form');
 const selectEl = document.querySelector('#searchCountry');
 import paginationMarkup from './pagination';
 import notification from './notification';
+
 
 let { countryCode, keyword, pageCount } = params;
 
@@ -26,7 +27,7 @@ function onSearch(event) {
           renderMarkupMain.page.number,
           {
             baseTag: 'a',
-            link: 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO&page=',
+            link: `${requestToAPI}&page=`,
           },
         )),
     )
