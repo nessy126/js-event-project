@@ -35,12 +35,14 @@ body{
     }
   
     @media screen and (min-width: 1280px) {
+      background-position: center;
       background-image: url('../images/main-background/bg-body.jpg');
     }
   
     @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
       (min-resolution: 192dpi) and (min-width: 1280px),
       (min-resolution: 2dppx) and (min-width: 1280px) {
+      background-position: center;
       background-image: url('../images/main-background/bg-body2x.jpg');
     }
   }
