@@ -1,5 +1,5 @@
 import renderMarkupMain from './renderMarkupMain';
-import { params, fetchEvents } from './fetchEvents';
+import { params, fetchEvents, requestToAPI } from './fetchEvents';
 import paginationMarkup from './pagination';
 
 let { countryCode, keyword, pageCount } = params;
@@ -23,8 +23,15 @@ paginationId.addEventListener('click', e => {
         renderMarkupMain.page.number,
         {
           baseTag: 'a',
-          link: 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO&page=',
+          link: `${requestToAPI}&page=`,
         },
       )),
   );
+  document.querySelector('.gallery').classList.add('vivify', 'popIn');
+});
+
+document.querySelector('.gallery').classList.add('vivify', 'popIn');
+paginationId.addEventListener('mouseover', e => {
+  e.preventDefault();
+  document.querySelector('.gallery').classList.remove('vivify', 'popIn');
 });

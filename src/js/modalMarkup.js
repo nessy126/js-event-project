@@ -1,9 +1,17 @@
+import { params, fetchEvents, key, baseURL, requestToAPI } from './fetchEvents';
+import renderMarkupMain from './renderMarkupMain';
+import { toggleClass } from './modal-window-open';
+import paginationMarkup from './pagination';
+import notification from './notification';
+
 const axios = require('axios');
+
+let { countryCode, keyword, pageCount } = params;
 
 async function fetchEventsById(id) {
   try {
     const result = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO`,
+      `${baseURL}/${id}.json?apikey=${key}`,
     );
 
     const data = result.data;
@@ -14,7 +22,6 @@ async function fetchEventsById(id) {
   }
 }
 function checkInfo(data) {
-  console.log(data);
   const event = {
     id: data.id,
     url: data.url,
@@ -30,9 +37,8 @@ function checkInfo(data) {
     country: data._embedded.venues[0].country.name,
     image: data.images.find(img => img.url.includes('ARTIST_PAGE_3_2')),
     imageMain: data.images.find(img => img.url.includes('TABLET_LANDSCAPE_LARGE_16_9')),
+    nameOfAuthor: data._embedded.attractions.find(author => author.name).name,
   };
-
-  console.log(event.byTicket);
 
   modalMarkup(event);
 }
@@ -76,9 +82,7 @@ function modalMarkup(event) {
           </ul>
         </div>   
         </div>
-        <a class="buttons more-from btn-position" href="#">MORE FROM THIS AUTHOR</a>
-        `;
-
+         <a class="buttons more-from btn-position" href="#" data-name="${event.nameOfAuthor}">MORE FROM THIS AUTHOR</a>`;
   modalForm.innerHTML = markup;
   renderIventPrice(event.priceRanges, event.byTicket);
 
@@ -89,12 +93,14 @@ function modalMarkup(event) {
   } else {
     infoConteiner.classList.remove('info-description');
   }
+
+  const linkEl = document.querySelector('.more-from');
+  linkEl.addEventListener('click', searchByAuthor);
+
 }
 
 function renderIventPrice(priceRanges, byTicket) {
   const priceListEl = document.querySelector('.prices-list');
-  console.log(byTicket);
-  console.log;
 
   if (priceRanges === '') return;
   priceListEl.innerHTML = `<h2 class="modal__header">PRICES</h2>`;
@@ -105,10 +111,32 @@ function renderIventPrice(priceRanges, byTicket) {
       ${item.type[0].toUpperCase() + item.type.slice(1)}  ${item.min} - ${item.max} ${
         item.currency
       }</p>
-        <a class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </a>
+        <button class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </button>
     </li>`;
     })
     .join('');
   priceListEl.insertAdjacentHTML('beforeend', renderPrice);
 }
 export { fetchEventsById, checkInfo };
+
+
+
+function searchByAuthor(event) {
+  keyword = event.target.getAttribute('data-name');
+  toggleClass();
+   const paginationId = document.querySelector('.pagination');
+   fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
+   fetchEvents(keyword, countryCode, pageCount)
+     .then(
+       renderMarkupMain =>
+         (paginationId.innerHTML = paginationMarkup(
+           renderMarkupMain.page.totalPages,
+           renderMarkupMain.page.number,
+           {
+             baseTag: 'a',
+             link: `${requestToAPI}&page=`,
+           },
+         )),
+     )
+     .catch(console.log);
+}
