@@ -1,4 +1,14 @@
+import { async } from 'fast-glob';
+import { params, fetchEvents } from './fetchEvents';
+import renderMarkupMain from './renderMarkupMain';
+import { toggleClass } from './modal-window-open';
+import paginationMarkup from './pagination';
+import notification from './notification';
+import { even } from 'prelude-ls';
+
 const axios = require('axios');
+
+let { countryCode, keyword, pageCount } = params;
 
 async function fetchEventsById(id) {
   try {
@@ -30,6 +40,7 @@ function checkInfo(data) {
     country: data._embedded.venues[0].country.name,
     image: data.images.find(img => img.url.includes('ARTIST_PAGE_3_2')),
     imageMain: data.images.find(img => img.url.includes('TABLET_LANDSCAPE_LARGE_16_9')),
+    nameOfAuthor: data._embedded.attractions.find(author => author.name).name,
   };
 
   console.log(event.byTicket);
@@ -39,6 +50,7 @@ function checkInfo(data) {
 
 const modalForm = document.querySelector('.modal-wrapper');
 function modalMarkup(event) {
+  console.log(event.nameOfAuthor);
   const markup = `
   <div class="img-wrapper">
         <img class= "small-img" src="${event.image.url}" alt="">
@@ -71,7 +83,7 @@ function modalMarkup(event) {
             </ul>
             <ul class="prices-list"></ul>
         </div>
-         <a class="buttons more-from btn-position" href="#">MORE FROM THIS AUTHOR</a>`;
+         <a class="buttons more-from btn-position" href="#" data-name="${event.nameOfAuthor}">MORE FROM THIS AUTHOR</a>`;
   modalForm.innerHTML = markup;
   renderIventPrice(event.priceRanges, event.byTicket);
 
@@ -82,6 +94,10 @@ function modalMarkup(event) {
   } else {
     infoConteiner.classList.remove('info-description');
   }
+
+  const linkEl = document.querySelector('.more-from');
+  linkEl.addEventListener('click', searchByAuthor);
+
 }
 
 function renderIventPrice(priceRanges, byTicket) {
@@ -98,10 +114,33 @@ function renderIventPrice(priceRanges, byTicket) {
       ${item.type[0].toUpperCase() + item.type.slice(1)}  ${item.min} - ${item.max} ${
         item.currency
       }</p>
-        <a class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </a>
+        <button class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </button>
     </li>`;
     })
     .join('');
   priceListEl.insertAdjacentHTML('beforeend', renderPrice);
 }
 export { fetchEventsById, checkInfo };
+
+
+
+function searchByAuthor(event) {
+  keyword = event.target.getAttribute('data-name');
+  console.log(keyword);
+  toggleClass();
+   const paginationId = document.querySelector('.pagination');
+   fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
+   fetchEvents(keyword, countryCode, pageCount)
+     .then(
+       renderMarkupMain =>
+         (paginationId.innerHTML = paginationMarkup(
+           renderMarkupMain.page.totalPages,
+           renderMarkupMain.page.number,
+           {
+             baseTag: 'a',
+             link: 'https://app.ticketmaster.com/discovery/v2/events.json?apikey=il6i4KM0pDEyN9gICQHmHldbbGGfGGTO&page=',
+           },
+         )),
+     )
+     .catch(console.log);
+}

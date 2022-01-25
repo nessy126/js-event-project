@@ -7,7 +7,6 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
   modalForm: document.querySelector('.modal-wrapper'),
 };
-console.log(refs.infoConteiner);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdrop.addEventListener('click', onBackdrop);
@@ -43,6 +42,8 @@ function onBackdrop(e) {
     toggleClass();
   }
 }
+
+export { toggleClass };
 // targetElement.ontouchend = e => {
 //   e.preventDefault();
 // };
