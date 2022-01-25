@@ -1,7 +1,6 @@
 import renderMarkupMain from './renderMarkupMain';
 import { params, fetchEvents, requestToAPI } from './fetchEvents';
 import paginationMarkup from './pagination';
-import onToUpBtn from './scroll';
 
 let { countryCode, keyword, pageCount } = params;
 const galleryEl = document.querySelector('.gallery');
@@ -16,7 +15,6 @@ paginationId.addEventListener('click', e => {
   galleryEl.innerHTML = '';
   countryCode = selectEl.value;
   keyword = formEl.elements.searchWord.value;
-  onToUpBtn();
   fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain);
   fetchEvents(keyword, countryCode, pageCount).then(
     renderMarkupMain =>
