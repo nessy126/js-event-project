@@ -1,17 +1,21 @@
 .header_wrapper {
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 .header_background {
     position: absolute;
     display: block;
     margin: 0 auto;
-    width: 320px;
+    width: 100%;
     height: 364px;
     background-image: linear-gradient(
       180deg,
       rgba(13, 13, 13, 0) 0%,
       rgba(14, 14, 14, 0.8) 100%
-    ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-mob-1x.jpg);
+    ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/header/bgImg-mob-1x.jpg);
     background-size: 100% 102px, cover, cover;
     background-position: 50% 100%, center, center;
     background-repeat: no-repeat;
@@ -22,34 +26,30 @@
             180deg,
             rgba(13, 13, 13, 0) 0%,
             rgba(14, 14, 14, 0.8) 100%
-          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-mob-2x.jpg);
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/header/bgImg-mob-2x.jpg);
       }
     @media screen and (min-width: 768px) {
-        width: 768px;
+        width: 100%;
     height: 364px;
-        background-image: linear-gradient(
-            180deg,
-            rgba(13, 13, 13, 0) 0%,
-            rgba(14, 14, 14, 0.8) 100%
-          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-1x.jpg);   
-    }
+        background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(10, 10, 10, 0.8) 100%), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/header/bgImg-tablet-1x.jpg);   
+        }
     @media (min-device-pixel-ratio: 2) and (min-width: 768px),
       (min-resolution: 192dpi) and (min-width: 768px),
       (min-resolution: 2dppx) and (min-width: 768px) {
         background-image: linear-gradient(
             180deg,
             rgba(13, 13, 13, 0) 0%,
-            rgba(14, 14, 14, 0.8) 100%
-          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-2x.jpg);   
+            rgba(10, 10, 10, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/header/bgImg-tablet-2x.jpg);   
 }
       @media screen and (min-width: 1280px) {
-        width: 1280px;
+        width: 100%;
         height: 446px;
         background-image: linear-gradient(
             180deg,
             rgba(13, 13, 13, 0) 0%,
-            rgba(14, 14, 14, 0.8) 100%
-          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-desktop-1x.jpg);   
+            rgba(10, 10, 10, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/header/bgImg-desktop-1x.jpg);   
     }
     @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
       (min-resolution: 192dpi) and (min-width: 1280px),
@@ -57,15 +57,15 @@
         background-image: linear-gradient(
             180deg,
             rgba(13, 13, 13, 0) 0%,
-            rgba(14, 14, 14, 0.8) 100%
-          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-desktop-2x.jpg);   
+            rgba(10, 10, 10, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/header/bgImg-desktop-2x.jpg);   
 }
    
 }
 
 .header_blur {
     background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(10px);
     clip-path: circle(45%);
     height: 190px;
     width: 210px;
@@ -91,7 +91,7 @@
     display: block;
     padding-bottom: 80px;
     @media screen and (min-width: 768px) {
-        padding: 40px 40px 60px 40px;
+        padding: 40px 40px 65px 40px;
     }
     // @media screen and (min-width: 1280px) {
     //     padding: 40px 40px 60px 40px;
@@ -190,7 +190,7 @@ margin-bottom: 55px;}
     box-sizing: border-box;
 width: 270px;
 background: rgba(255, 255, 255, 0.2);
-backdrop-filter: blur(20px);
+backdrop-filter: blur(7px);
 -webkit-backdrop-filter: blur(20px);
 border-radius: 20px;
 border: none;
@@ -216,11 +216,11 @@ line-height: 20px;
 color: var(--third-text-color);
 }
 
-.header_search-form:first-child{
-    @media screen and (min-width: 768px) {
-        padding-left: 0px;
-    }
-}
+// .header_search-form:first-child{
+//     @media screen and (min-width: 768px) {
+//         padding-left: 0px;
+//     }
+// }
 
 header select{
     -webkit-appearance: none;
@@ -239,6 +239,7 @@ header select{
 .header_search_icon {
     width: 15px;
     height: 15px;
+    backdrop-filter: blur(0px);
     
 }
 
@@ -249,5 +250,6 @@ header select{
     outline: none;
     border: none;
     background-color: transparent;
+    padding: 0px;
 }
 
