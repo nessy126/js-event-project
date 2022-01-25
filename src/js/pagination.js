@@ -13,8 +13,8 @@ export default function paginationMarkup(
     dotTag = 'span',
     baseTag = 'b',
     link = '',
-    baseClass = '',
-    classActive = 'activePage',
+    baseClass = 'pag-links',
+    classActive = 'active-page',
 
     query = '',
   } = {},
