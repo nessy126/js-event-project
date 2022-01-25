@@ -15,7 +15,7 @@ function onScroll() {
   }
 }
 
-function onToUpBtn() {
+export default function onToUpBtn() {
   if (window.pageYOffset > 0) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
