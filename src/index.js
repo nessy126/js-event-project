@@ -11,7 +11,7 @@ import './js/onSubmit';
 import './js/styleSelect';
 import './js/generatePaginationByQuery';
 import './js/generatePaginationUsingRightData';
+import notification from './js/notification';
 
 let { countryCode, keyword, pageCount } = params;
-fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain);
-
+fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
