@@ -1,14 +1,20 @@
-.header{
-    background-color: var(--primary-background-color);
+.header_wrapper {
+  position: relative;
+}
+.header_background {
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    width: 320px;
+    height: 364px;
     background-image: linear-gradient(
       180deg,
       rgba(13, 13, 13, 0) 0%,
       rgba(14, 14, 14, 0.8) 100%
-    ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-1x.jpg);
-    background-position: center;
-    // background-size: 100% auto;
-    position: relative;
-    padding: 25px;
+    ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-mob-1x.jpg);
+    background-size: 100% 102px, cover, cover;
+    background-position: 50% 100%, center, center;
+    background-repeat: no-repeat;
     @media (min-device-pixel-ratio: 2) and (max-width: 767px),
       (min-resolution: 192dpi) and (max-width: 767px),
       (min-resolution: 2dppx) and (max-width: 767px) {
@@ -16,29 +22,82 @@
             180deg,
             rgba(13, 13, 13, 0) 0%,
             rgba(14, 14, 14, 0.8) 100%
-          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-2x.jpg);
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-mob-2x.jpg);
       }
     @media screen and (min-width: 768px) {
+        width: 768px;
+    height: 364px;
+        background-image: linear-gradient(
+            180deg,
+            rgba(13, 13, 13, 0) 0%,
+            rgba(14, 14, 14, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-1x.jpg);   
+    }
+    @media (min-device-pixel-ratio: 2) and (min-width: 768px),
+      (min-resolution: 192dpi) and (min-width: 768px),
+      (min-resolution: 2dppx) and (min-width: 768px) {
+        background-image: linear-gradient(
+            180deg,
+            rgba(13, 13, 13, 0) 0%,
+            rgba(14, 14, 14, 0.8) 100%
+          ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-tablet-2x.jpg);   
+}
+      @media screen and (min-width: 1280px) {
+        width: 1280px;
+        height: 446px;
         background-image: linear-gradient(
             180deg,
             rgba(13, 13, 13, 0) 0%,
             rgba(14, 14, 14, 0.8) 100%
           ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-desktop-1x.jpg);   
-        padding: 40px;
-    
     }
-    @media (min-device-pixel-ratio: 2) and (min-width: 768px),
-      (min-resolution: 192dpi) and (max-width: 767px),
-      (min-resolution: 2dppx) and (max-width: 767px) {
+    @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
+      (min-resolution: 192dpi) and (min-width: 1280px),
+      (min-resolution: 2dppx) and (min-width: 1280px) {
         background-image: linear-gradient(
             180deg,
             rgba(13, 13, 13, 0) 0%,
             rgba(14, 14, 14, 0.8) 100%
           ), linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url(../images/bgImg-desktop-2x.jpg);   
-        padding: 40px;
-      }
+}
    
 }
+
+.header_blur {
+    background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
+    backdrop-filter: blur(30px);
+    clip-path: circle(45%);
+    height: 190px;
+    width: 210px;
+    position: absolute;
+    top: -90px;
+    left: -90px;
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 350px;
+    width: 330px;
+    top: -190px;
+    left: -120px;
+    }
+    @media screen and (min-width: 1280px) {
+        height: 470px;
+    width: 450px;
+    top: -230px;
+    left: -200px;
+    }
+  }
+
+.header_content_wrapper {
+    position: relative;
+    display: block;
+    padding-bottom: 80px;
+    @media screen and (min-width: 768px) {
+        padding: 40px 40px 60px 40px;
+    }
+    // @media screen and (min-width: 1280px) {
+    //     padding: 40px 40px 60px 40px;
+    // }
+}
+
 // .header_title_thumb {
 
 //     @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -49,7 +108,7 @@
 //     }
 // }
 .header_and_logo_thumb {
-
+position: relative;
     @media screen and (min-width: 768px) {
         display: flex;
         justify-content: space-between;
@@ -59,6 +118,7 @@
 .header_and_logo_thumb::after{
     @media screen and (min-width: 768px) {
         content: '';
+
         width: 150px;
         height: 50px;
         display: block;
@@ -73,44 +133,19 @@
 .header_logo {
     width: 60px;
     height: 30px;
-margin-bottom: 25px;
-position: relative;
+margin: 25px;
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 100px;
     height: 50px;
-    margin-right: 70px;
+    margin: 0px 40px 0px 0px;
 }
 @media screen and (min-width: 1280px) {
     width: 140px;
     height: 70px;
-    margin-right: 115px;
+    margin: 0px 115px 0px 0px;
 }
-
 }
-
-    .header_blur {
-        background: linear-gradient(136.07deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
-        backdrop-filter: blur(30px);
-        clip-path: circle(45%);
-        height: 190px;
-        width: 210px;
-        position: absolute;
-        top: -90px;
-        left: -90px;
-        @media screen and (min-width: 768px) and (max-width: 1279px) {
-            height: 350px;
-        width: 330px;
-        top: -190px;
-        left: -120px;
-        }
-        @media screen and (min-width: 1280px) {
-            height: 470px;
-        width: 450px;
-        top: -230px;
-        left: -200px;
-        }
-      }
-
 
 .header_title {
 color: var(--title-text-color);
@@ -200,6 +235,7 @@ header select{
         margin-right: 30px;
     }
 }
+
 .header_search_icon {
     width: 15px;
     height: 15px;
