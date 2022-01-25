@@ -1,11 +1,13 @@
-import { fetchEventsById, modalMarkup } from './modalMarkup.js';
+import { fetchEventsById, checkInfo } from './modalMarkup.js';
 const refs = {
   openModalBtn: document.querySelectorAll('[data-modal-open]'),
   gallery: document.querySelector('.gallery'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
+  modalForm: document.querySelector('.modal-wrapper'),
 };
+console.log(refs.infoConteiner);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdrop.addEventListener('click', onBackdrop);
@@ -25,16 +27,22 @@ function openModal(e) {
   if (!e.target.closest('li')) return;
   const id = e.target.closest('li').id;
   toggleClass();
-  fetchEventsById(id).then(modalMarkup);
+  fetchEventsById(id).then(checkInfo);
+  // renderModalMarkup();
 }
 
 function closeModal(e) {
   if (!e.target.closest('button')) return;
+  refs.modalForm.innerHTML = '';
   toggleClass();
 }
 
 function onBackdrop(e) {
   if (e.target === e.currentTarget) {
+    refs.modalForm.innerHTML = '';
     toggleClass();
   }
 }
+// targetElement.ontouchend = e => {
+//   e.preventDefault();
+// };
