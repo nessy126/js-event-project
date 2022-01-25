@@ -20,6 +20,10 @@
     border-radius: 300px 0px;
   }
 }
+.position {
+  position: absolute;
+  z-index: 10;
+}
 
 .modal-close-btn {
   position: absolute;
@@ -97,7 +101,10 @@
     border: 1px solid;
   }
 }
-.main-img {
+.main-img-wrapper .main-img {
+  z-index: 99;
+  position: absolute;
+  overflow: visible;
   object-fit: cover;
   display: block;
   max-width: 100%;
@@ -151,6 +158,24 @@
     font-size: 18px;
     line-height: 1.2;
     margin-bottom: 5px;
+  }
+}
+.info-conteiner {
+  width: 450px;
+  height: 70px;
+  overflow: hidden;
+}
+.info-description {
+  display: inline-block;
+  animation: floatText 15s infinite linear;
+  padding-top: 20%;
+}
+.info-description:hover {
+  animation-play-state: paused;
+}
+@keyframes floatText {
+  to {
+    transform: translateY(-100%);
   }
 }
 .modal__item {

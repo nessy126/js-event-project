@@ -5,7 +5,9 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
   backdrop: document.querySelector('.backdrop'),
+  modalForm: document.querySelector('.modal-wrapper'),
 };
+console.log(refs.infoConteiner);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdrop.addEventListener('click', onBackdrop);
@@ -31,11 +33,16 @@ function openModal(e) {
 
 function closeModal(e) {
   if (!e.target.closest('button')) return;
+  refs.modalForm.innerHTML = '';
   toggleClass();
 }
 
 function onBackdrop(e) {
   if (e.target === e.currentTarget) {
+    refs.modalForm.innerHTML = '';
     toggleClass();
   }
 }
+// targetElement.ontouchend = e => {
+//   e.preventDefault();
+// };

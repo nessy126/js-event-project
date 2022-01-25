@@ -25,20 +25,23 @@ function checkInfo(data) {
     timezone: data._embedded.venues[0].timezone ? data._embedded.venues[0].timezone : '',
     info: data.info ? data.info : 'Sorry, but there is no info',
     localDate: data.dates.start.localDate ? data.dates.start.localDate : '',
-    // pricetype: data.priceRanges[0].type ? data.priceRanges[0].type : '',
-    // minPrice: data.priceRanges[0].min ? data.priceRanges[0].min : '',
-    // maxPrice: data.priceRanges[0].max ? data.priceRanges[0].max : '',
-    // currency: data.priceRanges[0].currency ? data.priceRanges[0].currency : '',
+    priceRanges: data.priceRanges ? data.priceRanges : '',
+    pricetype: data.priceRanges ? data.priceRanges[0].type : '',
+    minPrice: data.priceRanges ? data.priceRanges[0].min : '',
+    maxPrice: data.priceRanges ? data.priceRanges[0].max : '',
+    currency: data.priceRanges ? data.priceRanges[0].currency : '',
+    byTicket: data.url ? data.url : '',
     country: data._embedded.venues[0].country.name,
     image: data.images.find(img => img.url.includes('ARTIST_PAGE_3_2')),
     imageMain: data.images.find(img => img.url.includes('TABLET_LANDSCAPE_LARGE_16_9')),
   };
 
+  console.log(event);
+
   modalMarkup(event);
 }
 
-const modalForm = document.querySelector('.modal-form');
-
+const modalForm = document.querySelector('.modal-wrapper');
 function modalMarkup(event) {
   const markup = `
   <div class="img-wrapper">
@@ -49,9 +52,11 @@ function modalMarkup(event) {
       </div>
       <div class="card-discription">
           <ul class="modal__list">
-              <li class="modal__item">
+              <li class="modal__item ">
                     <h2 class="modal__header">INFO</h2>
-                    <p class="modal__description">${event.info}</p>
+                    <div  class="info-conteiner">
+                    <p class="modal__description" data-modal-info>${event.info}</p>
+                    </div>
                 </li>
                 <li class="modal__item"
                     <h2 class="modal__header">WHEN</h2>
@@ -68,27 +73,37 @@ function modalMarkup(event) {
                     <p class="modal__description">${event.name}</p>
                 </li>
             </ul>
-            <h2 class="modal__header">PRICES</h2>
-            <ul class="prices-list">
-           
-            </ul>
+            <ul class="prices-list"></ul>
         </div>
-         <a class="buttons more-from btn-position" href="#">MORE FROM THIS AUTHOR</a>
-        `;
+         <a class="buttons more-from btn-position" href="#">MORE FROM THIS AUTHOR</a>`;
   modalForm.innerHTML = markup;
-}
-//  <li>
-//    <p class="price">
-//      ${event.pricetype}${event.minPrice}-${event.maxPrice}${event.currency}
-//    </p>
-//    <a class="buttons buy-tiket" href="#">
-//      BUY TICKETS
-//    </a>
-//  </li>;
-//
-//             <li><img src="#" alt="">
-//                 <p class="price">${data.priceRanges[0].type}${data.priceRanges[0].min}${data.priceRanges[0].max}${data.priceRanges[0].currency}</p>
-//                 <a class="buttons buy-tiket" href="#">BUY TICKETS</a>
-//             </li>
+  renderIventPrice(event.priceRanges, event.byTicket);
 
+  const infoConteiner = document.querySelector('[data-modal-info]');
+
+  if (event.info.length > 50) {
+    infoConteiner.classList.add('info-description');
+  } else {
+    infoConteiner.classList.remove('info-description');
+  }
+}
+
+function renderIventPrice(priceRanges, byTicket) {
+  const priceListEl = document.querySelector('.prices-list');
+
+  if (priceRanges === '') return;
+  priceListEl.innerHTML = `<h2 class="modal__header">PRICES</h2>`;
+  const renderPrice = priceRanges
+    .map(item => {
+      return `<li>
+        <p class="price">
+      ${item.type[0].toUpperCase() + item.type.slice(1)}  ${item.min} - ${item.max} ${
+        item.currency
+      }</p>   
+        <a class="buttons buy-tiket" href= "${item.byTicket}">BUY TICKETS </a>
+    </li>`;
+    })
+    .join('');
+  priceListEl.insertAdjacentHTML('beforeend', renderPrice);
+}
 export { fetchEventsById, checkInfo };
