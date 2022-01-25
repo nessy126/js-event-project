@@ -12,10 +12,14 @@ select[data-ss-uuid] {
     scrollbar-width: thin;
     padding-left: 10px;
     color: var(--third-text-color);
+    font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(20px);
-    z-index: 2;
+    z-index: 1;
   
     &,
     * {
@@ -40,7 +44,7 @@ select[data-ss-uuid] {
         position: absolute;
   
         top: 6px;
-        right: 25px;
+        right: 30px;
         display: block;
         background-image: url('../images/decor/select_arr_down.svg');
         width: 13px;
@@ -64,8 +68,8 @@ select[data-ss-uuid] {
       height: 210px;
       overflow: auto;
   
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(7px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom-right-radius: 20px;
       border-bottom-left-radius: 20px;
