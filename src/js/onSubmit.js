@@ -1,9 +1,7 @@
-import { params, fetchEvents, requestToAPI } from './fetchEvents';
-import renderMarkupMain from './renderMarkupMain';
+import { params } from './fetchEvents';
 const formEl = document.querySelector('#search-form');
 const selectEl = document.querySelector('#searchCountry');
-import paginationMarkup from './pagination';
-import notification from './notification';
+import fetchRequest from './fetchRequest';
 
 let { countryCode, keyword, pageCount } = params;
 
@@ -14,22 +12,8 @@ function onSearch(event) {
   if (countryCode === 'Choose country') {
     countryCode = 'US';
   }
-
-  const paginationId = document.querySelector('.pagination');
-  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
-  fetchEvents(keyword, countryCode, pageCount)
-    .then(
-      renderMarkupMain =>
-        (paginationId.innerHTML = paginationMarkup(
-          renderMarkupMain.page.totalPages,
-          renderMarkupMain.page.number + 1,
-          {
-            baseTag: 'a',
-            link: `${requestToAPI}&page=`,
-          },
-        )),
-    )
-    .catch(console.log);
+  console.log(keyword, countryCode)
+  fetchRequest(keyword, countryCode, pageCount);
 }
 
 formEl.addEventListener('submit', onSearch);

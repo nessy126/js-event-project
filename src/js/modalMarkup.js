@@ -1,19 +1,14 @@
-import { params, fetchEvents, key, baseURL, requestToAPI } from './fetchEvents';
-import renderMarkupMain from './renderMarkupMain';
+import { params, key, baseURL } from './fetchEvents';
 import { toggleClass } from './modal-window-open';
-import paginationMarkup from './pagination';
-import notification from './notification';
-
 const axios = require('axios');
+import fetchRequest from './fetchRequest';
 
 let { countryCode, keyword, pageCount } = params;
 
 async function fetchEventsById(id) {
   try {
     const result = await axios.get(`${baseURL}/${id}.json?apikey=${key}`);
-
     const data = result.data;
-
     return data;
   } catch (error) {
     console.log(error);
@@ -37,7 +32,6 @@ function checkInfo(data) {
     imageMain: data.images.find(img => img.url.includes('TABLET_LANDSCAPE_LARGE_16_9')),
     nameOfAuthor: data._embedded.attractions.find(author => author.name).name,
   };
-
   modalMarkup(event);
 }
 
@@ -122,19 +116,6 @@ export { fetchEventsById, checkInfo };
 function searchByAuthor(event) {
   keyword = event.target.getAttribute('data-name');
   toggleClass();
-  const paginationId = document.querySelector('.pagination');
-  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
-  fetchEvents(keyword, countryCode, pageCount)
-    .then(
-      renderMarkupMain =>
-        (paginationId.innerHTML = paginationMarkup(
-          renderMarkupMain.page.totalPages,
-          renderMarkupMain.page.number + 1,
-          {
-            baseTag: 'a',
-            link: `${requestToAPI}&page=`,
-          },
-        )),
-    )
-    .catch(console.log);
+    console.log(keyword, countryCode);
+  fetchRequest(keyword, countryCode, pageCount);
 }

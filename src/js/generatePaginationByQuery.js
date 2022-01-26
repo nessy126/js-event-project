@@ -1,6 +1,5 @@
-import renderMarkupMain from './renderMarkupMain';
-import { params, fetchEvents, requestToAPI } from './fetchEvents';
-import paginationMarkup from './pagination';
+import { params } from './fetchEvents';
+import fetchRequest from './fetchRequest';
 
 let { countryCode, keyword, pageCount } = params;
 const galleryEl = document.querySelector('.gallery');
@@ -15,18 +14,7 @@ paginationId.addEventListener('click', e => {
   galleryEl.innerHTML = '';
   countryCode = selectEl.value;
   keyword = formEl.elements.searchWord.value;
-  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain);
-  fetchEvents(keyword, countryCode, pageCount).then(
-    renderMarkupMain =>
-      (paginationId.innerHTML = paginationMarkup(
-        renderMarkupMain.page.totalPages,
-        renderMarkupMain.page.number + 1,
-        {
-          baseTag: 'a',
-          link: `${requestToAPI}&page=`,
-        },
-      )),
-  );
+  fetchRequest(keyword, countryCode, pageCount);
   document.querySelector('.gallery').classList.add('vivify', 'popIn');
 });
 
