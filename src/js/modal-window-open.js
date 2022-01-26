@@ -29,9 +29,6 @@ function openModal(e) {
   toggleClass();
   fetchEventsById(id).then(checkInfo);
 
-  document.querySelector('[data-modal]').classList.remove('vivify', 'jumpOutRight');
-  document.querySelector('[data-modal]').classList.add('vivify', 'jumpInLeft');
-
   animationTwo();
 }
 
@@ -52,11 +49,11 @@ function onBackdrop(e) {
 
 function animationTwo() {
   document.querySelector('.modal-form').classList.remove('vivify', 'jumpOutRight');
-  document.querySelector('.modal-form').classList.add('vivify', 'jumpInLeft');
+  document.querySelector('.modal-form').classList.add('vivify', 'fadeIn');
 }
 
 function animation() {
-  document.querySelector('.modal-form').classList.remove('vivify', 'jumpInLeft');
+  document.querySelector('.modal-form').classList.remove('vivify', 'fadeIn');
   document.querySelector('.modal-form').classList.add('vivify', 'jumpOutRight');
 }
 
