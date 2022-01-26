@@ -10,9 +10,7 @@ let { countryCode, keyword, pageCount } = params;
 
 async function fetchEventsById(id) {
   try {
-    const result = await axios.get(
-      `${baseURL}/${id}.json?apikey=${key}`,
-    );
+    const result = await axios.get(`${baseURL}/${id}.json?apikey=${key}`);
 
     const data = result.data;
 
@@ -82,7 +80,9 @@ function modalMarkup(event) {
           </ul>
         </div>   
         </div>
-         <a class="buttons more-from btn-position" href="#" data-name="${event.nameOfAuthor}">MORE FROM THIS AUTHOR</a>`;
+         <a class="buttons more-from btn-position" href="#" data-name="${
+           event.nameOfAuthor
+         }">MORE FROM THIS AUTHOR</a>`;
   modalForm.innerHTML = markup;
   renderIventPrice(event.priceRanges, event.byTicket);
 
@@ -96,7 +96,6 @@ function modalMarkup(event) {
 
   const linkEl = document.querySelector('.more-from');
   linkEl.addEventListener('click', searchByAuthor);
-
 }
 
 function renderIventPrice(priceRanges, byTicket) {
@@ -111,32 +110,31 @@ function renderIventPrice(priceRanges, byTicket) {
       ${item.type[0].toUpperCase() + item.type.slice(1)}  ${item.min} - ${item.max} ${
         item.currency
       }</p>
-        <button class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </button>
+        <a class="buttons buy-tiket" href= "${byTicket}" target="_blank">BUY TICKETS </a>
     </li>`;
     })
     .join('');
+
   priceListEl.insertAdjacentHTML('beforeend', renderPrice);
 }
 export { fetchEventsById, checkInfo };
 
-
-
 function searchByAuthor(event) {
   keyword = event.target.getAttribute('data-name');
   toggleClass();
-   const paginationId = document.querySelector('.pagination');
-   fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
-   fetchEvents(keyword, countryCode, pageCount)
-     .then(
-       renderMarkupMain =>
-         (paginationId.innerHTML = paginationMarkup(
-           renderMarkupMain.page.totalPages,
-           renderMarkupMain.page.number,
-           {
-             baseTag: 'a',
-             link: `${requestToAPI}&page=`,
-           },
-         )),
-     )
-     .catch(console.log);
+  const paginationId = document.querySelector('.pagination');
+  fetchEvents(keyword, countryCode, pageCount).then(renderMarkupMain).catch(notification);
+  fetchEvents(keyword, countryCode, pageCount)
+    .then(
+      renderMarkupMain =>
+        (paginationId.innerHTML = paginationMarkup(
+          renderMarkupMain.page.totalPages,
+          renderMarkupMain.page.number,
+          {
+            baseTag: 'a',
+            link: `${requestToAPI}&page=`,
+          },
+        )),
+    )
+    .catch(console.log);
 }
