@@ -1,7 +1,6 @@
 .body {
   position: fixed;
   overflow: hidden;
-  // overflow-y: scroll;
 }
 .is-hidden {
   visibility: hidden;
@@ -13,6 +12,8 @@
   overflow: auto;
   width: 100vw;
   height: 100vh;
+
+  position: fixed;
 
   z-index: 10;
   top: 0;

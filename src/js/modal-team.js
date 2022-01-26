@@ -13,12 +13,12 @@ export default function modalTogle() {
   function toggleModalOpen() {
     refs.backdrop.classList.toggle('is-hidden');
     document.querySelector('.modal-form-team').classList.remove('vivify', 'popOutTop');
-    document.querySelector('.modal-form-team').classList.add('vivify', 'popInBottom');
+    document.querySelector('.modal-form-team').classList.add('vivify', 'fadeInBottom');
   }
 
   function toggleModalCloset() {
     refs.backdrop.classList.toggle('is-hidden');
-    document.querySelector('.modal-form-team').classList.remove('vivify', 'popInBottom');
+    document.querySelector('.modal-form-team').classList.remove('vivify', 'fadeInBottom');
     document.querySelector('.modal-form-team').classList.add('vivify', 'popOutTop');
   }
 
