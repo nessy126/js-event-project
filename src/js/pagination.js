@@ -33,7 +33,7 @@ export default function paginationMarkup(
   const startShow = nowPage - countItemShow;
   const endShow = nowPage + countItemShow;
   if (totalPage >= 50) {
-    totalPage = 49;
+    totalPage = 50;
   }
   for (let i = 1; i <= totalPage; i++) {
     if (i > endShow) i = totalPage;

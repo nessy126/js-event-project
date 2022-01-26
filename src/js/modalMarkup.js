@@ -78,7 +78,7 @@ function modalMarkup(event) {
             </ul>
             <ul class="prices-list">
           </ul>
-        </div>   
+        </div>
         </div>
          <a class="buttons more-from btn-position" href="#" data-name="${
            event.nameOfAuthor
@@ -105,7 +105,7 @@ function renderIventPrice(priceRanges, byTicket) {
   priceListEl.innerHTML = `<h2 class="modal__header">PRICES</h2>`;
   const renderPrice = priceRanges
     .map(item => {
-      return `<li>   
+      return `<li>
         <p class="price">
       ${item.type[0].toUpperCase() + item.type.slice(1)}  ${item.min} - ${item.max} ${
         item.currency
@@ -129,7 +129,7 @@ function searchByAuthor(event) {
       renderMarkupMain =>
         (paginationId.innerHTML = paginationMarkup(
           renderMarkupMain.page.totalPages,
-          renderMarkupMain.page.number,
+          renderMarkupMain.page.number + 1,
           {
             baseTag: 'a',
             link: `${requestToAPI}&page=`,
