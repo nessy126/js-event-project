@@ -2,6 +2,7 @@ import { params, key, baseURL } from './fetchEvents';
 import { toggleClass } from './modal-window-open';
 const axios = require('axios');
 import fetchRequest from './fetchRequest';
+const formEl = document.querySelector('#search-form');
 
 let { countryCode, keyword, pageCount } = params;
 
@@ -115,7 +116,7 @@ export { fetchEventsById, checkInfo };
 
 function searchByAuthor(event) {
   keyword = event.target.getAttribute('data-name');
+  formEl.elements.searchWord.value = keyword;
   toggleClass();
-    console.log(keyword, countryCode);
   fetchRequest(keyword, countryCode, pageCount);
 }
