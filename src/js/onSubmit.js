@@ -5,7 +5,6 @@ const selectEl = document.querySelector('#searchCountry');
 import paginationMarkup from './pagination';
 import notification from './notification';
 
-
 let { countryCode, keyword, pageCount } = params;
 
 function onSearch(event) {
@@ -23,7 +22,7 @@ function onSearch(event) {
       renderMarkupMain =>
         (paginationId.innerHTML = paginationMarkup(
           renderMarkupMain.page.totalPages,
-          renderMarkupMain.page.number,
+          renderMarkupMain.page.number + 1,
           {
             baseTag: 'a',
             link: `${requestToAPI}&page=`,

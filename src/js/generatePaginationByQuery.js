@@ -20,7 +20,7 @@ paginationId.addEventListener('click', e => {
     renderMarkupMain =>
       (paginationId.innerHTML = paginationMarkup(
         renderMarkupMain.page.totalPages,
-        renderMarkupMain.page.number,
+        renderMarkupMain.page.number + 1,
         {
           baseTag: 'a',
           link: `${requestToAPI}&page=`,
