@@ -1,0 +1,52 @@
+body {
+  @media screen and (max-width: 767px) {
+    background-color: var(--secondary-background-color);
+  }
+  background-color: #060606;
+  background-image: url('../images/body-background/noise-body.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.main_background {
+  background-image: url('../images/main-background/bg-body-mobile.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  text-align: center;
+  padding-bottom: 100px;
+
+  @media (min-device-pixel-ratio: 2) and (max-width: 767px),
+    (min-resolution: 192dpi) and (max-width: 767px),
+    (min-resolution: 2dppx) and (max-width: 767px) {
+    background-image: url('../images/main-background/bg-body-mobile2x.jpg');
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    background-image: url('../images/main-background/bg-body-tablet-cut.jpg');
+    background-position: top;
+    background-repeat: repeat-y;
+  }
+
+  @media (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279px),
+    (min-resolution: 192dpi) and (min-width: 768px),
+    (min-resolution: 2dppx) and (min-width: 768px) {
+    background-image: url('../images/main-background/bg-body-tablet2x-cut.jpg');
+    background-position: top;
+    background-repeat: repeat-y;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url('../images/main-background/bg-body-cut.jpg');
+    background-position: center;
+    background-repeat: repeat-y;
+  }
+
+  @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
+    (min-resolution: 192dpi) and (min-width: 1280px),
+    (min-resolution: 2dppx) and (min-width: 1280px) {
+    background-image: url('../images/main-background/bg-body2x-cut.jpg');
+    background-position: center;
+    background-repeat: repeat-y;
+  }
+}

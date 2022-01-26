@@ -1,0 +1,35 @@
+.btn-up {
+  position: fixed;
+  bottom: 3vh;
+  right: 1vw;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: url('../images/decor/neon_cursor02-pink.cur'), auto;
+  opacity: 0;
+  visibility: hidden;
+  color: var(--title-text-color);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+
+  filter: brightness(0.75) saturate(0.3) contrast(1);
+  transform: scale(1) translateZ(0);
+  transition: filter 200ms linear, transform 200ms linear;
+}
+
+.btn-up:hover {
+  filter: brightness(1) saturate(1) contrast(1.2);
+}
+
+.btn-img {
+  fill: var(--title-text-color);
+}
+
+.btn-up--visible {
+  opacity: 1;
+  visibility: visible;
+}
