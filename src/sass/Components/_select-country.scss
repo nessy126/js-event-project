@@ -2,8 +2,8 @@ select[data-ss-uuid] {
   display: none;
   pointer-events: none;
 }
-
-.style-select {
+.choices,
+.choices__input {
   border: none;
   position: relative;
   width: 270px;

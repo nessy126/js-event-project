@@ -1,9 +1,11 @@
 import styleselect from 'styleselect';
 import Scrollbar from 'smooth-scrollbar';
+import Choices from 'choices.js';
 
 const selectRef = document.querySelector('#searchCountry');
 
-//Стилізація селекта 
+const choices = new Choices(selectRef);
+//Стилізація селекта
 
 styleselect(selectRef);
 
