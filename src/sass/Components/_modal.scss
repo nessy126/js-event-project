@@ -22,17 +22,17 @@
     border-radius: 290px 0px;
     top: 20px;
     padding-top: 130px;
-    padding-left: 36px;
-    padding-right: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
     padding-bottom: 40px;
   }
   @media screen and (min-width: 1280px) {
-    top: 10px;
+    top: 20px;
     width: 554px;
     padding-top: 142px;
     padding-bottom: 40px;
-    padding-left: 15px;
-    padding-right: 0px;
+    padding-left: 43px;
+    padding-right: 43px;
     border-radius: 300px 0px;
   }
 }
@@ -100,10 +100,10 @@
   @media screen and (min-width: 1280px) {
     display: inline-block;
 
-    width: 200px;
+    width: 220px;
     height: 420px;
 
-    margin-right: 18px;
+    margin-right: 35px;
   }
 }
 .main-img-wrapper .main-img {
@@ -256,7 +256,7 @@
   }
   @media screen and (min-width: 1280px) {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 0px;
   }
 }
