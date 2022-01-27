@@ -1,0 +1,113 @@
+.choices {
+  border: none;
+  // position: relative;
+  width: 270px;
+  height: 40px;
+  border-radius: 20px;
+  scrollbar-width: thin;
+  color: var(--third-text-color);
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1;
+}
+
+.choices__list--dropdown {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+  border: 0px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 25px 25px;
+  color: white;
+}
+.choices .choices__inner {
+  width: 270px;
+  height: 40px;
+
+  padding: 10px 50px 10px 30px;
+  background-color: transparent;
+  // backdrop-filter: blur(7px);
+  border: none;
+}
+.choices__input {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+}
+.choices__placeholder {
+  opacity: 1;
+}
+.choices__list--single {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+.choices__list {
+  padding: 0;
+}
+.choices__list .choices__list--dropdown .is-active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.choices {
+  &.is-open {
+    border-radius: 20px 20px 0 0;
+  }
+}
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background-color: transparent;
+  &::after {
+    display: none;
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    &::after {
+      display: block;
+    }
+  }
+}
+.choices__item {
+  height: 20px;
+  &.is-highlighted {
+    background-color: red;
+  }
+}
+.choices__input {
+  &.choices__input--cloned {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+.choices__item:hover {
+  color: var(--title-text-color);
+  font-weight: 700;
+}
+.choices__item {
+  &.choices__item--choice {
+    &.choices__item--selectable {
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+//
+
+// .choices__input {
+//   &.choices__input--cloned {
+//     display: block;
+//     background-color: green;
+//   }
+// }
+.choices__input {
+  &.choices__input--cloned {
+    display: block;
+    background-color: red;
+    color: hotpink;
+  }
+}
+.choices[data-type*='select-one'] .choices__input {
+  color: black;
+  border: solid 0 transparent;
+  background-color: transparent;
+}

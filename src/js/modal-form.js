@@ -3,7 +3,6 @@ import { params, fetchEvents } from './fetchEvents';
 
 export default function renderModalMarkup(data) {
 
-  console.log({ params, fetchEvents });
   const markup = arr
     .map(item => {
       `<div class="img-wrapper">

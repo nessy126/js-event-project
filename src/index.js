@@ -11,8 +11,9 @@ import './js/markupSelect';
 import './js/onSubmit';
 import './js/styleSelect';
 import './js/generatePaginationByQuery';
-import  './js/notification';
+import './js/notification';
 import fetchRequest from './js/fetchRequest';
+import './js/choices';
 
 let { countryCode, keyword, pageCount } = params;
-fetchRequest(keyword, countryCode, pageCount)
+fetchRequest(keyword, countryCode, pageCount);
