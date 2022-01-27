@@ -23,7 +23,7 @@ export default function fetchRequest(keyword, countryCode, pageCount) {
         )),
     )
     .catch(error => {
-      console.log(error);
+      console.log(error.message);
       notification();
     });
 }
