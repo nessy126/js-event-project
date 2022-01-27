@@ -13,7 +13,6 @@ async function fetchEvents(keyword, countryCode, pageCount) {
       throw new Error();
     }
     const data = result.data;
-
     return data;
   } catch (error) {
     return error;
