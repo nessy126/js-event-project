@@ -5,5 +5,5 @@ const element = document.querySelector('#searchCountry');
 
 const choices = new Choices(element, {
   searchEnabled: true,
-  placeholder: false,
+  placeholder: true,
 });
